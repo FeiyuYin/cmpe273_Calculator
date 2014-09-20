@@ -1,7 +1,7 @@
 
 
 # NodeExpressProject
-Lab for cmpe273
+Lab for cmpe273 using Node.js
 
 
 ## Usage
