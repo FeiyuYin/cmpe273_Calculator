@@ -27,15 +27,22 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', function(req, res){
-  res.render('calculator', { result: ""});
-});
+//app.get('/', function(req, res){
+//  res.render('calculator', { result: ""});
+//});
 
 app.get('/', routes.index);
 
-app.post('/calculator', routes.calculator);
+app.get('/calculator', routes.urlCalculator);
 
 app.get('/users', user.list);
+
+//app.dynamicHelpers({
+//    scripts: function() {
+//        //scripts to load on every page
+//        return ['views/functions.js'];
+//    }
+//});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
