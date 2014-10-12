@@ -3,42 +3,6 @@ html
   head
    
     meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
-    script.
-      function randomCalCalls_1000(){
-       var start = (new Date()).getTime();
-       for(var i = 0; i < 100; i ++){
-        var opers = ["+", "-", "*", "/"];
-        var p1 = Math.floor(Math.random() * 10) + 1;
-        var p2 = Math.floor(Math.random() * 10) + 1;
-        var oper = opers[Math.floor(Math.random() * 3) + 1];
-        var req = new XMLHttpRequest();
-        var get = "?oper=" + oper + "&p1=" + p1 + "&p2=" + p2;
-        req.open('GET', 'http://127.0.0.1:3000/calculator/'+get, true);
-        console.log(get);
-        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        req.send();}
-       var stop = (new Date()).getTime();
-       var time = (stop - start)/100;
-       console.log(time);
-       document.getElementById("request_1000_result").innerHTML = time;}
-
-      function randomCalCalls_5000(){
-       var start = (new Date()).getTime();
-       for(var i = 0; i < 500; i ++){
-        var opers = ["+", "-", "*", "/"];
-        var p1 = Math.floor(Math.random() * 10) + 1;
-        var p2 = Math.floor(Math.random() * 10) + 1;
-        var oper = opers[Math.floor(Math.random() * 3) + 1];
-        var req = new XMLHttpRequest();
-        req.open('GET', 'http://127.0.0.1:3000/calculator/', true);
-        var get = "oper=" + oper + "&p1=" + p1 + "&p2=" + p2;
-        req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        console.log(get);
-        req.send(get);}
-       var stop = (new Date()).getTime();
-       var time = (stop - start)/500
-       console.log(time);
-       document.getElementById("request_5000_result").innerHTML = time;}
     
   body
    center
@@ -72,18 +36,6 @@ html
             input(type="submit", name="DoIt", value="  =  ")
             input(type="button", name="div", value="  /  ", onclick="Calc.Input.value += ' / '")
             br
-    p
-    p
-    button(id = "request_1000_button", href = "", onclick = "randomCalCalls_1000();") Invoke 1000 consecutive calculator calls.
-    p Average respond time for 1000 consecutive request in milliseconds:
-    p(id = "request_1000_result")
-    p
-    p
-    button(id = "request_5000_button", href = "", onclick = "randomCalCalls_5000();") Invoke 5000 consecutive calculator calls.
-    p Average respond time for 5000 consecutive request in milliseconds:
-    p(id = "request_5000_result")
-    
-
         
 
          

@@ -13,7 +13,7 @@ exports.index = function(req, res){
 exports.urlCalculator= function(req, res){
 	
 	var queryS = url.parse(req.url).query;
-	console.log(queryS); 
+	console.log(queryS);
 	var operator = querystring.parse(queryS)["oper"];
 
 	var p1 = querystring.parse(queryS)["p1"];
